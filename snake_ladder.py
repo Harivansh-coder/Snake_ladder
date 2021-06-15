@@ -1,22 +1,10 @@
 import random
 
 
-game_board = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10,
-            11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 
-            21, 22, 23, 24, 25, 26, 27, 28, 29, 30,
-            31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
-            41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
-            51, 52, 53, 54, 55, 56, 57, 58, 59, 60,
-            61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
-            71, 72, 73, 74, 75, 76, 77, 78, 79, 80,
-            81, 82, 83, 84, 85, 86, 87, 88, 89, 90,
-            91, 92, 93, 94, 95, 96, 97, 98, 99, 100]
-
-
 # Taking players data
 players = {} #stores players name their locations
 isReady = {}
-current_loc = 0 #vaiable for iterating location
+current_loc = 1 #vaiable for iterating location
 
 imp = True
 
@@ -65,14 +53,17 @@ def play():
         print("3 -> exit the game")
         print("/"*20)
 
+
         for i in players:
             n = input("{}'s turn: ".format(i)) or 1
             n = int(n)
 
-            if game_board[players[i]] < 100:
+                
+
+            if players[i] < 100:
                 if n == 1:
                     temp1 = roll()
-                    print(f"you got {temp1} ")
+                    print(f"you got {temp1}")
                     print("")
 
                     if isReady[i] == False and temp1 == 6:
@@ -86,16 +77,21 @@ def play():
                             temp1 += looproll
                             print(f"you got {looproll} ")
                             print("")
-                        print(temp1)
-                        players[i] += temp1
-                        players[i] = move(players[i],i)
-                        
-                    print(f"you are at position {game_board[players[i]]}")
+                        #print(temp1)
+                        if (players[i] + temp1) > 100:
+                            pass
+                        elif (players[i] + temp1) < 100:
+                            players[i] += temp1
+                            players[i] = move(players[i],i)
+                        elif (players[i] + temp1) == 100:
+                            print(f"congrats {i} you won !!!")
+                            imp = False
+                            return
 
-            
+                            
                         
-                
-                    
+                    print(f"you are at position {players[i]}")
+        
 
                 elif n == 2:
                     players = {} #stores player ans their locations
@@ -110,9 +106,7 @@ def play():
                 else:
                     print("pls enter a valid input")
 
-            if (game_board[players[i]]) == 100:
-                print(f"congrats {i} you won !!!")
-                imp = False
+            
             
 
 
@@ -202,8 +196,3 @@ print("/"*40)
 
 player_input()
 
-
-
-
-
-     
