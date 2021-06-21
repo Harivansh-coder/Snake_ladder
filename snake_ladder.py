@@ -126,15 +126,7 @@ def move(a,i):
     
 
 
-    
-
-    
-            
-
-    
-
-
-#snake code
+#snake bite code
 def snake(c,i):
     if (c == 32):
         players[i] = 10
