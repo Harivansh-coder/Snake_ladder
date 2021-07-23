@@ -1,4 +1,4 @@
-# Snake_ladder
+### Snake_ladder
 Snake ladder game (Non GUI) implemented completely in python3 
 
 1> It's control are menu driven, so select appropriate option to play it.
