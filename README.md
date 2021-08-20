@@ -1,3 +1,5 @@
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ### Snake_ladder
 Snake ladder game (Non GUI) implemented completely in python3 
 
